@@ -21,9 +21,16 @@ def youtube_link(a):
     ytbs = ([s for s in ytbs if not (('cover'  in s['title'].lower())
                                 or  ('live'    in s['title'].lower())
                                 or  ('karaoke' in s['title'].lower()))]) 
-    ytbs = [views_from_en_vid(s) for s in ytbs]
     ### filter out covers, live recordings, karaoke version###
-    return ytbs
+    threshold = 10000
+    found = False
+    while(1):
+        for v in ytbs:
+            (url, vws) = views_from_en_vid(v)
+            if vws >= threshold:
+                return url
+        threshold /= 10
+        
 
 ###get number of views for echonest youtube video###
 ###return pair (url, views)###
@@ -31,5 +38,11 @@ def views_from_en_vid(v):
     yt_id = re.split('=',v['url'])[1]
     entry = yt_service.GetYouTubeVideoEntry(video_id=yt_id)
     return (v['url'], entry.statistics.view_count)
-for y in youtube_link("radiohead"):
-    print y
+
+def create_video_object(url):
+    return "<iframe width= \"560\" height = \"315\"\n\
+src = %s \n\
+frameborder=\"0\" allowfullscreen></iframe>\n" %url
+
+url = youtube_link("adele")
+print create_video_object(url)
