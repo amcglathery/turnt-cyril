@@ -26,10 +26,12 @@ def youtube_link(a):
     threshold = 10000
     while(1):
         for v in ytbs:
-            (url, vws) = views_from_en_vid(v)
+            (yt_id, vws) = views_from_en_vid(v)
             if vws >= threshold:
-                return url
+                return yt_id
         threshold /= 10
+        if threshold == 0:
+            return ytbs[0]['url']
 
 
 ###get number of views for echonest youtube video###
@@ -37,7 +39,7 @@ def youtube_link(a):
 def views_from_en_vid(v):
     yt_id = re.split('=',v['url'])[1]
     entry = yt_service.GetYouTubeVideoEntry(video_id=yt_id)
-    return (v['url'], entry.statistics.view_count)
+    return (yt_id, entry.statistics.view_count)
 
 ###given youtube url, return a string containing embeddable YouTube player###
 ###for valid youtube url###
@@ -51,7 +53,7 @@ def get_bio(a):
     for i in bios:
         if "last" in i[unicode('url')]:
            return i[unicode('text')]
-    return bios[0][unicode('text')]
+    return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name 
 
 def get_image(a):
     images = a.get_images(results=50)

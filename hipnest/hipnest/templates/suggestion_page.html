@@ -1,8 +1,9 @@
 {% extends "base.html" %}
-
+<html>
 {% block title %} Presenting: {{s_artist}} {% endblock title %}
 
 {% block content %}
+<<<<<<< HEAD
 <div id = "search_bar_container">
   <form action="suggest" method="get">
     <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
@@ -39,3 +40,11 @@
 
     {% endblock content %}
     
+=======
+<h1>Since you like {{seed_artist}} so much, we thought you might like {{s_artist}}</h1>
+<p>{{bio}}</p>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/{{vid}}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+<img src={{art}} width="200" height="150">
+{% endblock content %}
+</html>
+>>>>>>> 436e0b06cb9a9320d766732ba1f9db490e0c2557
