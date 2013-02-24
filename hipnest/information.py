@@ -18,7 +18,7 @@ config.ECHO_NEST_API_KEY="VWFUA3PRSAGWROUNV"
 ### return url to youtube for highly-played song by a ###
 def youtube_link(a):
     ytbs = ([s for s in a.get_video(100, 0) if
-            'youtube' in s['site']])
+            'myspace' in s['site']])
     ytbs = ([s for s in ytbs if not (('cover'  in s['title'].lower())
                                 or  ('live'    in s['title'].lower())
                                 or  ('karaoke' in s['title'].lower()))]) 
@@ -61,12 +61,3 @@ def get_image(a):
     return images[0][unicode('url')]
 
 
-<<<<<<< HEAD
-#a = artist.Artist("")
-#print get_bio(a)
-#print get_image(a)
-=======
-a = artist.Artist("Taylor Swift")
-print get_bio(a)
-print get_image(a)
->>>>>>> 08539f26f03f105313a834f3ccdf54b7a491c7a5
