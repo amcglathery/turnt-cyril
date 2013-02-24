@@ -5,6 +5,7 @@ body{
 
 #logo_container{
     display:inline-block;
+    width:400px;
 }
 
 #share_bar{
@@ -12,16 +13,16 @@ body{
     width:200px;
     padding-left:80px;
     float:right;
-    
+
 }
 
 #share_text{
     color:gray;
-    
+
 }
 
 #top_bar{
-    margin-top:20px;
+    margin-top:10px;
 }
 
 #search_bar_container{
@@ -77,7 +78,7 @@ body{
     font-weight:bold;
 }
 
-#search_result_artist{ 
+#search_result_artist{
     display: inline-block;
     margin-top:15px;
     font-size:45px;
@@ -91,7 +92,7 @@ body{
 #artist_photo{
     display:inline;
     margin:5px;
-    
+
 }
 
 #left_button_container{
@@ -130,5 +131,5 @@ body{
     height:35px;
     background-size:100% 100%;
     background-repeat: no-repeat;
-    
+
 }
