@@ -27,31 +27,12 @@
 
 <body>
 
-  <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container-fluid">
-        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        </a>
-        <a class="brand" href="#">Hipp)n(est</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-          {% block nav %}
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-          {% endblock nav %}
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-  </div>
-
-  <div class="container-fluid">
+  <div class="container">
   {% block content %}
-  <div id = "share_bar" class = "row">
+  <div id= "logo_container">
+    <img src="{{ STATIC_URL }}img/logo_hippNest.png" />
+  </div>
+  <div id = "share_bar">
     <a title = "Share on Facebook!"
       href = "http://www.facebook.com/sharer.php?u=www.hippnest.me"
       target = "_blank">
@@ -74,32 +55,40 @@
       </span>
     </a>
     </div>
-    <div id = "top_bar" class = "row">
-      <div id = "search_bar" class="span4">
-	<input type="text" class="span3" id="searchbar" data-provide="typeahead" data-items="4" />
-      </div>
-      <div id = "snarky_comment" class="span8">SNARKY COMMENT</div>
-    </div>
-    <div class = "row">
-      <div class = "span1">
-	<button id = "left_button" class = "btn search_btn"> &lt;&lt; </button>
-      </div>
-      <div id = "search_result" class = "span10" style = "height:500px; border: 1px solid;">
-	This is where artist information would be -- change style later
-	<div id="artist_info">
-	  SEARCH RESULT ABOUT ARTIST
-	</div>
-      </div>
-      <div class = "span1">
-	<button id = "right_button" class = "btn search_btn"> &gt;&gt; </button>
-      </div>
-    </div>
-    <div class = "row">
-     <div id = "bottom_arrow" class = "span12">bottom_arrow</div>
-   </div>
-   
 
-  {% endblock content %}
+
+  <div id = "search_bar_container">
+    <input type="text" id="searchbar" data-provide="typeahead" placeholder="Search for an artist" />
+  </div>
+  
+  
+  <div id = "top_bar">
+    <div id = "band_searched">
+
+
+    </div>
+    <div id = "snarky_comment"></div>
+  </div>
+    <div id = "search_result" style="background-image:url('{{ STATIC_URL }}img/box_suggestions.png');">
+      <div id = "left_button_container" class = "search_btn"> 
+	<img id = "left_button" src="{{ STATIC_URL }}img/button_left.png" />
+      </div>
+      <div id="artist_info">
+	SEARCH RESULT ABOUT ARTIST<br>
+	SEARCH RESULT ABOUT ARTIST<br>
+	SEARCH RESULT ABOUT ARTIST<br>
+	SEARCH RESULT ABOUT ARTIST<br>
+	SEARCH RESULT ABOUT ARTIST<br>
+	SEARCH RESULT ABOUT ARTIST<br>
+	SEARCH RESULT ABOUT ARTIST<br>
+	SEARCH RESULT ABOUT ARTIST<br>
+      </div>
+      <div id = "right_button_container" class = "search_btn">
+	<img id = "right_button" src="{{ STATIC_URL }}img/button_right.png" />
+      </div>
+    </div>
+    <div id = "bottom_arrow">bottom_arrow</div>
+    {% endblock content %}
   </div> <!-- /container -->
 
 
@@ -107,7 +96,7 @@
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="{{ STATIC_URL }}js/jquery.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   <script src="{{ STATIC_URL }}js/suggest.js"></script>
   
