@@ -21,7 +21,7 @@ def youtube_link(a):
             'youtube' in s['site']])
     ytbs = ([s for s in ytbs if not (('cover'  in s['title'].lower())
                                 or  ('live'    in s['title'].lower())
-                                or  ('karaoke' in s['title'].lower()))]) 
+                                or  ('karaoke' in s['title'].lower()))])
     ### filter out covers, live recordings, karaoke version###
     threshold = 10000
     while(1):
@@ -30,7 +30,7 @@ def youtube_link(a):
             if vws >= threshold:
                 return url
         threshold /= 10
-        
+
 
 ###get number of views for echonest youtube video###
 ###return pair (url, views)###
@@ -61,12 +61,3 @@ def get_image(a):
     return images[0][unicode('url')]
 
 
-<<<<<<< HEAD
-#a = artist.Artist("")
-#print get_bio(a)
-#print get_image(a)
-=======
-a = artist.Artist("Taylor Swift")
-print get_bio(a)
-print get_image(a)
->>>>>>> 08539f26f03f105313a834f3ccdf54b7a491c7a5

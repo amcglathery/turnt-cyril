@@ -8,7 +8,9 @@
       Just start typing you favorite band... we'll take care of the rest.
   </h2>
   <form action="suggest" method="get">
-    <input type="text" name="artist" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" data-items="4" />
+    <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" data-items="4" />
+    <input type="hidden" name="neg_artists", value="" />
+    <input type="hidden" name="fame", value="0.5" />
     <input type="submit" style="visibility: hidden;" />
   </form>
 {% endblock content %}
