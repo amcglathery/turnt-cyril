@@ -78,7 +78,30 @@
   <script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
-  <script src="{{ STATIC_URL }}js/suggest.js"></script>
+  <script>
+    $('#searchbar').typeahead({
+      source : function (query, process) {
+        var artistNames = []
+        var data = {}
+        $.ajax({
+            url : 'http://developer.echonest.com/api/v4/artist/suggest?' +
+                   'api_key={{ echonest_api_key }}&' +
+                   'name=' + query,
+            data : "{}",
+            dataType : "json",
+            success : function(result) {
+              console.log(result);
+              if (result.response.artists){
+                $(result.response.artists).each( function(index, artist){
+                  artistNames.push(artist.name);
+                });
+                process(artistNames);
+              }
+            }
+      });
+      }
+    });
+  </script>
 
 </body>
 
