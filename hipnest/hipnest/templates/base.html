@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -9,6 +9,7 @@
 
   <!-- Le styles -->
   <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+  <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
   <style>
     body {
       padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -52,6 +53,7 @@
   {% block content %}
     <h1>Bootstrap starter template</h1>
     <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+<<<<<<< HEAD
     <input type="text" class="span3" id="searchbar" data-provide="typeahead" data-items="4" />
     <a title = "Share on Facebook!"
       href = "http://www.facebook.com/sharer.php?u=www.hippnest.me"
@@ -74,6 +76,34 @@
         <img width ="30" height="30" src= "{{STATIC_URL}}img/Twitter.png" alt="Reddik" />
       </span>
     </a>
+=======
+    <div id = "topbar" class = "row">
+      <div id = "search_bar" class="span4">
+	<input type="text" class="span3" id="searchbar" data-provide="typeahead" data-items="4" />
+      </div>
+      <div id = "snarky_comment" class="span8">SNARKY COMMENT</div>
+    </div>
+    <div class = "row">
+     <div class = "span1">
+       <button id = "left_button" class = "btn search"> << </button>
+     </div>
+     <div id = "search_result" class = "span10">
+       <div style="height: 500px; border: 1px solid">
+	 This is where artist information would be -- change style later
+	 <div id="a_id">SLIDE A</div>
+
+       </div>
+     </div>
+     <div class = "span1">
+       <button id = "right_button" class = "btn search"> >> </button>
+     </div>
+    </div>
+    <div class = "row">
+      <div id = "bottom_arrow" class = "span12">bottom_arrow</div>
+    </div>
+      
+
+>>>>>>> 53787d27ff92e6b2f089e6a9e8dd22bc6d7174b0
   {% endblock content %}
   </div> <!-- /container -->
 
@@ -93,7 +123,7 @@
   <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
   <script src="{{ STATIC_URL }}js/suggest.js"></script>
-
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 </body>
 
 </html>
