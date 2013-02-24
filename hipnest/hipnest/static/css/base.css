@@ -33,6 +33,7 @@ body{
 }
 
 #searchbar{
+    height:28px;
     width:65%;
     margin:5px;
 }
