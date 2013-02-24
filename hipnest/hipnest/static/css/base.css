@@ -1,5 +1,7 @@
 .search_btn{
     position:fixed;
+    width: 50px;
+    display: block;
 }
 
 #left_button{
