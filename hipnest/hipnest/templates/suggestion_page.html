@@ -1,10 +1,12 @@
 {% extends "base.html" %}
-
+<html>
 {% block title %} Presenting: {{s_artist}} {% endblock title %}
 
 {% block content %}
 <h1>Since you like {{seed_artist}} so much, we thought you might like {{s_artist}}</h1>
 <p>{{bio}}</p>
 <p>{{vid}}</p>
-<img src={{art}}>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/{{vid}}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
+<img src={{art}} width="200" height="150">
 {% endblock content %}
+</html>
