@@ -12,10 +12,19 @@ def splash_page(request):
                                context_instance=RequestContext(request))
 
 
-#def suggest_page(request):
-#    ###get artist from request###
-#    suggested_artist = suggest.suggestArtist(artist)
-#    suggested_artist_bio   = info.get_bio(suggested_artist)
-#    suggested_artist_art   = info.get_image(suggested_artist)
-#    suggested_artist_video = info.create_video_object(youtube_link(suggested_artist))
+def suggestion_page(request):
+    ###get artist from request###
+    artist = "radiohead"
+    fame   = .5
+    suggested_artist = suggest.suggest_artist([artist], fame)
+    suggested_artist_bio   = info.get_bio(suggested_artist)
+    suggested_artist_art   = info.get_image(suggested_artist)
+    suggested_artist_video = info.youtube_link(suggested_artist)
+    return render_to_response('suggestion_page.html', {"echonest_api_key": suggest.echonest_api_key, 
+                                                    "seed_artist":artist,
+                                                    "s_artist": suggested_artist,
+                                                    "bio": suggested_artist_bio,
+                                                    "art": suggested_artist_art,
+                                                    "vid": suggested_artist_video},
+                               context_instance=RequestContext(request))
 
