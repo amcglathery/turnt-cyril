@@ -107,16 +107,10 @@
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="{{ STATIC_URL }}js/jquery.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-transition.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-tab.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-tooltip.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-popover.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-button.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
+  <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+  <script src="{{ STATIC_URL }}js/suggest.js"></script>
+  
   <script>
     $('#searchbar').typeahead({
       source : function (query, process) {
