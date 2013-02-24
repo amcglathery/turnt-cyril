@@ -29,7 +29,7 @@
 
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
-      <div class="container">
+      <div class="container-fluid">
         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -49,12 +49,9 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container-fluid">
   {% block content %}
-    <h1>Bootstrap starter template</h1>
-    <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
- 
-    <div id = "share_bar" class = "row">
+  <div id = "share_bar" class = "row">
     <a title = "Share on Facebook!"
       href = "http://www.facebook.com/sharer.php?u=www.hippnest.me"
       target = "_blank">
@@ -83,15 +80,21 @@
       </div>
       <div id = "snarky_comment" class="span8">SNARKY COMMENT</div>
     </div>
-   <div id = "search_result" class = "span12" style = "height:500px; border: 1px solid;">
-     <button id = "left_button" class = "btn search_btn"> &lt;&lt; </button>
-     This is where artist information would be -- change style later
-     <div id="artist_info">
-       SEARCH RESULT ABOUT ARTIST
-     </div>
-     <button id = "right_button" class = "btn search_btn"> &gt;&gt; </button>
-   </div>
-   <div class = "row">
+    <div class = "row">
+      <div class = "span1">
+	<button id = "left_button" class = "btn search_btn"> &lt;&lt; </button>
+      </div>
+      <div id = "search_result" class = "span10" style = "height:500px; border: 1px solid;">
+	This is where artist information would be -- change style later
+	<div id="artist_info">
+	  SEARCH RESULT ABOUT ARTIST
+	</div>
+      </div>
+      <div class = "span1">
+	<button id = "right_button" class = "btn search_btn"> &gt;&gt; </button>
+      </div>
+    </div>
+    <div class = "row">
      <div id = "bottom_arrow" class = "span12">bottom_arrow</div>
    </div>
    
