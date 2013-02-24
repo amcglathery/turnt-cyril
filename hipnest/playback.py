@@ -23,7 +23,6 @@ def youtube_link(a):
                                 or  ('karaoke' in s['title'].lower()))]) 
     ### filter out covers, live recordings, karaoke version###
     threshold = 10000
-    found = False
     while(1):
         for v in ytbs:
             (url, vws) = views_from_en_vid(v)
@@ -39,8 +38,12 @@ def views_from_en_vid(v):
     entry = yt_service.GetYouTubeVideoEntry(video_id=yt_id)
     return (v['url'], entry.statistics.view_count)
 
+###given youtube url, return a string containing embeddable YouTube player###
+###for valid youtube url###
 def create_video_object(url):
     return "<iframe width= \"560\" height = \"315\"\n\
 src = %s \n\
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
+
+
 
