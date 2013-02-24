@@ -1,4 +1,13 @@
-.search{
-    height: 100%;
-    
+.search_btn{
+    position:fixed;
 }
+
+#left_button{
+    float:left;
+}
+
+#right_button{
+    float:right;
+}
+
+

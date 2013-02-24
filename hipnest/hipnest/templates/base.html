@@ -60,23 +60,20 @@
       <div id = "snarky_comment" class="span8">SNARKY COMMENT</div>
     </div>
     <div class = "row">
-     <div class = "span1">
-       <button id = "left_button" class = "btn search"> << </button>
-     </div>
-     <div id = "search_result" class = "span10">
+     <div id = "search_result" class = "span12">
        <div style="height: 500px; border: 1px solid">
 	 This is where artist information would be -- change style later
-	 <div id="a_id">SLIDE A</div>
-
+ 	 <button id = "left_button" class = "btn search_btn"> << </button>
+	 <div id="artist_info">
+	   SEARCH RESULT ABOUT ARTIST
+	 </div>
+        <button id = "right_button" class = "btn search_btn"> >> </button>
        </div>
      </div>
-     <div class = "span1">
-       <button id = "right_button" class = "btn search"> >> </button>
-     </div>
-    </div>
     <div class = "row">
       <div id = "bottom_arrow" class = "span12">bottom_arrow</div>
     </div>
+
       
 
   {% endblock content %}
