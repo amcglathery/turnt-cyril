@@ -61,6 +61,6 @@ def get_image(a):
     return images[0][unicode('url')]
 
 
-a = artist.Artist("")
+a = artist.Artist("Taylor Swift")
 print get_bio(a)
 print get_image(a)
