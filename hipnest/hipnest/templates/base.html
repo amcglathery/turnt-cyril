@@ -16,6 +16,7 @@ img{
   <!-- Le styles -->
   <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
   <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
+  <script src="{{ STATIC_URL }}js/jquery.js"></script>
   <style>
     body {
       padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -58,7 +59,7 @@ img{
       </span>
     </a>
     <a title = "Tweet me!"
-      href ="https://twitter.com/intent/tweet?text=I%20love%20exploring%20Hippnest!&url=http%3A%2F%2Fwww.hippnest.me&via=Hippnest" 
+      href ="https://twitter.com/intent/tweet?text=I%20love%20exploring%20Hippnest!&url=http%3A%2F%2Fwww.hippnest.me&via=Hippnest"
       target = "_blank">
       <span>
         <img width ="30" height="30" src= "{{STATIC_URL}}img/Twitter.png" alt="Twitter" />
@@ -72,11 +73,10 @@ img{
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="{{ STATIC_URL }}js/jquery.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   <script src="{{ STATIC_URL }}js/suggest.js"></script>
-  
+
   <script>
     $('#searchbar').typeahead({
       source : function (query, process) {
