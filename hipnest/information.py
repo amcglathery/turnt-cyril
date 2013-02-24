@@ -4,6 +4,7 @@ from pyechonest import artist
 import gdata.youtube
 import gdata.youtube.service
 import re
+import string
 
 yt_service = gdata.youtube.service.YouTubeService()
 
@@ -26,12 +27,16 @@ def youtube_link(a):
     threshold = 10000
     while(1):
         for v in ytbs:
-            (yt_id, vws) = views_from_en_vid(v)
+            monad = views_from_en_vid(v)
+            if monad:
+                (yt_id, vws) = monad
+            else:
+                continue
             if vws >= threshold:
                 return yt_id
         threshold /= 10
         if threshold == 0:
-            return ytbs[0]['url']
+            return "dtzZjauGO7s" 
 
 
 ###get number of views for echonest youtube video###
@@ -39,27 +44,39 @@ def youtube_link(a):
 def views_from_en_vid(v):
     yt_id = re.split('=',v['url'])[1]
     entry = yt_service.GetYouTubeVideoEntry(video_id=yt_id)
+    print entry
+    if "limitedSyndication" or "not found" or "Private video" in str(entry):
+        return None
     return (yt_id, entry.statistics.view_count)
 
 ###given youtube url, return a string containing embeddable YouTube player###
 ###for valid youtube url###
 def create_video_object(url):
     return "<iframe width= \"560\" height = \"315\"\n\
-src = %s \n\
+ src = %s \n\
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
 
 def get_bio(a):
     bios = a.get_biographies(results=50)
+    if len(bios) == 0:
+        return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name 
     for i in bios:
         if "last" in i[unicode('url')]:
-           return i[unicode('text')]
+           bio = i[unicode('text')]
+           short_bio = bio[:400]
+           last_dot = string.rfind('.', short_bio)
+           short_bio = short_bio[:last_dot]
+           return short_bio + "."
     return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name 
 
 def get_image(a):
     images = a.get_images(results=50)
-    for i in images[::-1]:
-        if "last" in i[unicode('url')]:
-            return i[unicode('url')]
-    return images[0][unicode('url')]
+    try:
+        for i in images[::-1]:
+            if "last" in i[unicode('url')]:
+                return i[unicode('url')]
+        return images[0][unicode('url')]
+    except:
+        return "http://i.imgur.com/iGI3S7A.jpg" 
 
 
