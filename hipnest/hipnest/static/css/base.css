@@ -111,6 +111,7 @@ body{
     text-align:left;
     left:-55px;
     top: 50px;
+    cursor:pointer;
 }
 
 #right_button_container{
@@ -119,8 +120,9 @@ body{
     float:right;
     top:500px;
     margin-left:1075px;
-
+    cursor:pointer;
 }
+
 
 .clearer{
     clear:both;
@@ -139,4 +141,35 @@ body{
     background-size:100% 100%;
     background-repeat: no-repeat;
 
+}
+
+
+#left_tooltip{
+    font-weight:bold;
+    font-size:11px;
+    padding: 2px;
+    background-color: #66FF00;
+    border: 1px solid;
+    z-index: 2;
+    position:absolute;
+    width:100px;
+}
+
+#right_tooltip{
+    font-weight:bold;
+    font-size:11px;
+    padding: 2px;
+    background-color: #66FF00;
+    border: 1px solid;
+    z-index: 2;
+    position:absolute;
+    width:100px;
+}
+
+#button_up{
+    cursor:pointer;
+}
+
+#button_down{
+    cursor:pointer;
 }
