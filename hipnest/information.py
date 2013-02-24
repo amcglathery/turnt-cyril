@@ -57,9 +57,12 @@ def create_video_object(url):
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
 
 def get_bio(a):
-    bios = a.get_biographies(results=50)
+    try:
+        bios = a.get_biographies(results=50)
+    except KeyError:
+        return "<b>%s</b> are so hipster, we haven't even heard of them yet. But you have!" %a.name 
     if len(bios) == 0:
-        return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name 
+        return "<b>%s</b> are so hipster, we haven't even heard of them yet. But you have!" %a.name 
     for i in bios:
         if "last" in i[unicode('url')]:
            bio = i[unicode('text')]
@@ -67,9 +70,10 @@ def get_bio(a):
            last_dot = string.rfind('.', short_bio)
            short_bio = short_bio[:last_dot]
            if len(short_bio) < 160:
-               return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name
+               return "<b>%s</b> are so hipster, we haven't even heard of them yet. But you have!" %a.name
+           re.sub(a.name, "<b>%s</b>" %a.name, short_bio)
            return short_bio + "."
-    return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name 
+    return "<b>%s</b> are so hipster, we haven't even heard of them yet. But you have!" %a.name 
 
 def get_image(a):
     images = a.get_images(results=50)
