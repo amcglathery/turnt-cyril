@@ -9,6 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'suggest.views.index'),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root' : settings.STATIC_ROOT}),
+    url(r'^splash$', "suggest.views.splash_page") 
 
     # Examples:
     #  url(r'^$', 'hipnest.views.index', name='index'),
