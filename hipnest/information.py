@@ -45,5 +45,5 @@ def create_video_object(url):
 src = %s \n\
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
 
-
-
+def bio(a):
+    artist.get_biographies(results=1)[0]
