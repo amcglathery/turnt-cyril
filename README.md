@@ -7,4 +7,4 @@ Requirements
 ------------
 - Echonest python api
   - install by:
-      '''easy_install -U pyechonest'''
+      ```easy_install -U pyechonest```
