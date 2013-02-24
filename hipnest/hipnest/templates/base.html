@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+s <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -9,6 +9,7 @@
 
   <!-- Le styles -->
   <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+  <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
   <style>
     body {
       padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -52,6 +53,28 @@
   {% block content %}
     <h1>Bootstrap starter template</h1>
     <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+    <div id = "topbar" class = "row">
+      <div id = "search_bar" class="span4">SEARCH BAR</div>
+      <div id = "snarky_comment" class="span8">SNARKY COMMENT</div>
+    </div>
+    <div class = "row">
+     <div class = "span1">
+       <button class = "btn search"> << </button>
+     </div>
+     <div id = "search_result" class = "span10">
+       <div style="height: 500px; border: 1px solid">
+	 This is where artist information would be -- change style later
+	 {{ foo }}
+       </div>
+     </div>
+     <div class = "span1">
+       <button class = "btn search"> >> </button>
+     </div>
+    </div>
+    <div class = "row">
+      <div id = "bottom_arrow" class = "span12">bottom_arrow</div>
+    </div>
+      
   {% endblock content %}
   </div> <!-- /container -->
 
