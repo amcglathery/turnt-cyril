@@ -1,4 +1,4 @@
-s <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -35,7 +35,7 @@ s <!DOCTYPE html>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         </a>
-        <a class="brand" href="#">Project</a>
+        <a class="brand" href="#">Hipp)n(est</a>
         <div class="nav-collapse">
           <ul class="nav">
           {% block nav %}
@@ -54,7 +54,9 @@ s <!DOCTYPE html>
     <h1>Bootstrap starter template</h1>
     <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
     <div id = "topbar" class = "row">
-      <div id = "search_bar" class="span4">SEARCH BAR</div>
+      <div id = "search_bar" class="span4">
+	<input type="text" class="span3" id="searchbar" data-provide="typeahead" data-items="4" />
+      </div>
       <div id = "snarky_comment" class="span8">SNARKY COMMENT</div>
     </div>
     <div class = "row">
@@ -75,18 +77,18 @@ s <!DOCTYPE html>
       <div id = "bottom_arrow" class = "span12">bottom_arrow</div>
     </div>
       
+
   {% endblock content %}
   </div> <!-- /container -->
+
 
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="{{ STATIC_URL }}js/jquery.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-transition.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-alert.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-modal.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-dropdown.js"></script>
-  <script src="{{ STATIC_URL }}js/bootstrap-scrollspy.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-tab.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-tooltip.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-popover.js"></script>
@@ -94,6 +96,7 @@ s <!DOCTYPE html>
   <script src="{{ STATIC_URL }}js/bootstrap-collapse.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
+  <script src="{{ STATIC_URL }}js/suggest.js"></script>
 
 </body>
 

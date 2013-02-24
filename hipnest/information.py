@@ -14,16 +14,16 @@ yt_service.ssl           = True
 
 config.ECHO_NEST_API_KEY="VWFUA3PRSAGWROUNV"
 
-### a is artist string from suggestion.py ###
+### a is echonest artist object from suggestion.py ###
+### return url to youtube for highly-played song by a ###
 def youtube_link(a):
-    ytbs = ([s for s in artist.Artist(a).get_video(100, 0) if
+    ytbs = ([s for s in a.get_video(100, 0) if
             'youtube' in s['site']])
     ytbs = ([s for s in ytbs if not (('cover'  in s['title'].lower())
                                 or  ('live'    in s['title'].lower())
                                 or  ('karaoke' in s['title'].lower()))]) 
     ### filter out covers, live recordings, karaoke version###
     threshold = 10000
-    found = False
     while(1):
         for v in ytbs:
             (url, vws) = views_from_en_vid(v)
@@ -39,8 +39,28 @@ def views_from_en_vid(v):
     entry = yt_service.GetYouTubeVideoEntry(video_id=yt_id)
     return (v['url'], entry.statistics.view_count)
 
+###given youtube url, return a string containing embeddable YouTube player###
+###for valid youtube url###
 def create_video_object(url):
     return "<iframe width= \"560\" height = \"315\"\n\
 src = %s \n\
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
 
+def get_bio(a):
+    bios = a.get_biographies(results=50)
+    for i in bios:
+        if "last" in i[unicode('url')]:
+           return i[unicode('text')]
+    return bios[0][unicode('text')]
+
+def get_image(a):
+    images = a.get_images(results=50)
+    for i in images[::-1]:
+        if "last" in i[unicode('url')]:
+            return i[unicode('url')]
+    return images[0][unicode('url')]
+
+
+a = artist.Artist("")
+print get_bio(a)
+print get_image(a)
