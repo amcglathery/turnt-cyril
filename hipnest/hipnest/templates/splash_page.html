@@ -5,12 +5,11 @@
 
 
 {% block content %}
-<div id = "splash_intro">
+<div style="margin-top:150px" id = "splash_intro">
   <h1 align="center"><font face="lucinda console">
       Just start typing you favorite band... we'll take care of the rest.
-  </h2>
+  </h1>
   <form align="center" action="suggest" method="get">
-
     <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
     <input type="hidden" name="neg_artists" value="" />
     <input type="hidden" name="fame" value="7" />
