@@ -14,13 +14,18 @@ def splash_page(request):
 
 def suggestion_page(request):
     ###get artist from request###
-    artist = "radiohead"
+    artist = request.REQUEST['artist']
+    print artist
     fame   = .5
     suggested_artist = suggest.suggest_artist([artist], fame)
+    print suggested_artist
     suggested_artist_bio   = info.get_bio(suggested_artist)
+    print suggested_artist_bio
     suggested_artist_art   = info.get_image(suggested_artist)
+    print suggested_artist_art
     suggested_artist_video = info.youtube_link(suggested_artist)
-    return render_to_response('suggestion_page.html', {"echonest_api_key": suggest.echonest_api_key, 
+    print suggested_artist_video
+    return render_to_response('suggestion_page.html', {"echonest_api_key": suggest.echonest_api_key,
                                                     "seed_artist":artist,
                                                     "s_artist": suggested_artist,
                                                     "bio": suggested_artist_bio,
