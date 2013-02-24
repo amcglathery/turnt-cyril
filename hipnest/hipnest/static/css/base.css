@@ -1,6 +1,9 @@
 body{
     width:100%;
     margin-auto;
+	background: url(../img/bg.jpg);
+	background-repeat: repeat-x;
+	background-position: bottom;
 }
 
 #logo_container{
