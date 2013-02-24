@@ -8,7 +8,7 @@
     console.log("here!");
     if ("{{vid}}" == "dtzZjauGO7s"){
       console.log("there!");
-      $("#dubcat").html('<h3> {{s_artist}} is too cool for youtube </h3>');
+      $("#dubcat").html('<h3> {{s_artist}} is too cool for YouTube, so we bring you dubstep cat!</h3>');
     }
   });
 </script>
@@ -39,6 +39,7 @@
       <span>No more like this artist</span>
       <img id ="button_up" src="{{ STATIC_URL }}img/buttons_up.png" />
         <span>More like this artist</span>
+	<button id = "random" class="btn" style="background-color: #FFFF33; width:100%">Give me a Random Artist! </button>
     </div>
     </div>
     <div id="dubcat"></div>
@@ -118,7 +119,9 @@ window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_a
 
 });
 
-
+$("#random").click(function(){
+    location.reload();
+})
 
 })
 
