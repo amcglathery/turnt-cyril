@@ -21,8 +21,8 @@
 	   style="background:url('{{ STATIC_URL }}img/button_hippstafy.png')"/>
   </form>
   </div>
-    <div id = "search_result_title">Since you like {{seed_artist}} so much, we thought you might like <br />
-<span id="search_result_artist">{{s_artist}}</span></div>
+  <div id = "search_result_title">Since you like {{seed_artist}}</br> so much, we thought you might like...</div>
+<div id="search_result_artist">{{s_artist}}</div>
 
 <div id = "search_result" style="background-image:url('{{ STATIC_URL }}img/box_suggestions.png');">
   <div id = "left_button_container" class = "search_btn">
@@ -66,7 +66,7 @@ $("#right_tooltip").hide();
 var mouseX;
 var mouseY;
 $(document).mousemove(function(e){
-   
+
 });
 
 $('#button_down').click(function(){
@@ -82,7 +82,7 @@ neg_artists = neg_artists[1];
 if (neg_artists == 'e'){
     neg_artists = "{{ s_artist }}";
 } else{
-    neg_artists = neg_artists + "," + "{{ s_artist }}" 
+    neg_artists = neg_artists + "," + "{{ s_artist }}"
 }
 
 var fame = query[2]
@@ -107,7 +107,7 @@ neg_artist = neg_artists.split('=');
 neg_artists = neg_artists[1];
 if (neg_artists == 'e'){
     neg_artists = '';
-} 
+}
 
 var fame = query[2]
 fame = fame.split('=');
