@@ -3,6 +3,15 @@
 {% block title %} Presenting: {{s_artist}} {% endblock title %}
 
 {% block content %}
+<script>
+  $(document).ready( function() {
+    console.log("here!");
+    if ("{{vid}}" == "dtzZjauGO7s"){
+      console.log("there!");
+      $("#dubcat").html('<h3> {{s_artist}} is too cool for youtube </h3>');
+    }
+  });
+</script>
 <div id = "search_bar_container">
   <form action="suggest" method="get">
     <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
@@ -24,6 +33,7 @@
   <div id="artist_info">
     <img id="artist_photo" align="left" height="350px"  src={{art}}>
     <p>{{bio}}</p>
+    <div id="dubcat"></div>
     <object width="560" height="315">
       <iframe width="560" height="315" src="http://www.youtube.com/embed/{{vid}}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
     </object>
@@ -37,7 +47,6 @@
   <div class="clearer"></div>
 <div id = "bottom_arrow">bottom_arrow</div>
 </div> <!-- /container -->
-
 
     {% endblock content %}
 
