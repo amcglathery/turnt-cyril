@@ -3,14 +3,25 @@ body{
     margin-auto;
 }
 
-#top_bar{
-    margin-top:20px;
+#logo_container{
+    display:inline-block;
 }
 
-#band_searched{
-    width:400px;
-    height:250px;
+#share_bar{
     display:inline-block;
+    width:200px;
+    padding-left:80px;
+    float:right;
+    
+}
+
+#share_text{
+    color:gray;
+    
+}
+
+#top_bar{
+    margin-top:20px;
 }
 
 #search_bar_container{
@@ -21,7 +32,7 @@ body{
 }
 
 #searchbar{
-    width:80%;
+    width:65%;
     margin:5px;
 }
 
@@ -29,7 +40,7 @@ body{
 #snarky_comment{
     position:relative;
     display:inline-block;
-    width:120px;
+    width:80px;
     height:250px;
     clear:both;
     float:right;
@@ -52,21 +63,42 @@ body{
 #search_result{
     background-size:100% 100%;
     background-repeat: no-repeat;
-    height:450px;
     width:850px;
     padding: 35px;
-    
+}
+
+#search_result_title{
+    display:inline-block;
+    margin-top:15px;
+    padding: 10px;
+    width:650px;
+    line-height:38px;
+    font-size:35px;
+    font-weight:bold;
+}
+
+#search_result_artist{ 
+    display: inline-block;
+    margin-top:15px;
+    font-size:45px;
 }
 
 #artist_info{
+    margin-top:50px;
     margin: 40px;
 }
 
+#artist_photo{
+    display:inline;
+    margin:5px;
+    
+}
+
 #left_button_container{
+    z-index:2;
     position:relative;
     background-color: none;
     display: block;
-    width:50%;
     float:left;
     text-align:left;
     left:-55px;
@@ -74,11 +106,29 @@ body{
 }
 
 #right_button_container{
-    position:relative;
-    display: block;
-    text-align:right;
+    z-index:2;
+    position:relative
     float:right;
+    top:500px;
+    margin-left:850px;
+
+}
+
+.clearer{
     clear:both;
-    top: -20px;
-    margin-right:-25px;
+}
+
+#splash_intro{
+    margin-top:50px;
+    padding:10px;
+
+}
+
+#search_submit{
+    display:inline;
+    width:130px;
+    height:35px;
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    
 }
