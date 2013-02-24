@@ -21,7 +21,7 @@ def youtube_link(a):
             'myspace' in s['site']])
     ytbs = ([s for s in ytbs if not (('cover'  in s['title'].lower())
                                 or  ('live'    in s['title'].lower())
-                                or  ('karaoke' in s['title'].lower()))]) 
+                                or  ('karaoke' in s['title'].lower()))])
     ### filter out covers, live recordings, karaoke version###
     threshold = 10000
     while(1):
@@ -30,7 +30,7 @@ def youtube_link(a):
             if vws >= threshold:
                 return url
         threshold /= 10
-        
+
 
 ###get number of views for echonest youtube video###
 ###return pair (url, views)###

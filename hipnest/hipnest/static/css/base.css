@@ -1,13 +1,84 @@
+body{
+    width:100%;
+    margin-auto;
+}
+
+#top_bar{
+    margin-top:20px;
+}
+
+#band_searched{
+    width:400px;
+    height:250px;
+    display:inline-block;
+}
+
+#search_bar_container{
+    margin-top:20px;
+    width:300px;
+    padding:10px;
+    display:inline;
+}
+
+#searchbar{
+    width:80%;
+    margin:5px;
+}
+
+
+#snarky_comment{
+    position:relative;
+    display:inline-block;
+    width:120px;
+    height:250px;
+    clear:both;
+    float:right;
+    padding-right:30px;
+    text-align:center;
+}
+
 .search_btn{
-    position:fixed;
-    width: 50px;
-    height: 80%;
+    background:none;
+    border:none;
+    font-color:#FFFFFF;
+    font-weight:bold;
+    font-size: 25px;
+    position:absolute;
     display: block;
+    z-index: 2;
+    top:250px;
 }
 
-.span10{
-    width: 80%;
+#search_result{
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+    height:450px;
+    width:850px;
+    padding: 35px;
+    
 }
 
+#artist_info{
+    margin: 40px;
+}
 
+#left_button_container{
+    position:relative;
+    background-color: none;
+    display: block;
+    width:50%;
+    float:left;
+    text-align:left;
+    left:-55px;
+    top: 50px;
+}
 
+#right_button_container{
+    position:relative;
+    display: block;
+    text-align:right;
+    float:right;
+    clear:both;
+    top: -20px;
+    margin-right:-25px;
+}
