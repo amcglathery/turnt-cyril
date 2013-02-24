@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<style>
+img{
+  max-width: 100px;
+  max-height: 150px;
+}
+</style>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -10,6 +16,7 @@
   <!-- Le styles -->
   <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
   <link href="{{ STATIC_URL }}css/base.css" rel="stylesheet">
+  <script src="{{ STATIC_URL }}js/jquery.js"></script>
   <style>
     body {
       padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
@@ -28,8 +35,13 @@
 <body>
 
   <div class="container">
-  <div id= "logo_container">
-    <img src="{{ STATIC_URL }}img/logo_hippNest.png" />
+    <div id= "logo_container">
+      <a title = "HippNest, a music discovery engine"
+        href = "splash">
+        <span>
+            <img src="{{ STATIC_URL }}img/logo_hippNest.png" style="float:left;"/>
+            <img src="{{ STATIC_URL }}img/EN_P_on_White.gif" style="float:right;" />
+        </span>
   </div>
   <div id = "share_bar">
     <div id="share_text">Share us</div>
@@ -41,14 +53,14 @@
       </span>
     </a>
     <a title = "Share on Reddit! Get that sweet, sweet karma"
-      href = "http://www.reddit.com/submit?title=Found this awesome band on Hipp)n(est!&url=http://www.hipnest.me"
+      href = "http://www.reddit.com/submit?&url=http://www.hipnest.me"
       target = "_blank">
       <span>
         <img width ="30" height="30" src= "{{STATIC_URL}}img/reddit.png" alt="Reddit" />
       </span>
     </a>
     <a title = "Tweet me!"
-      href ="https://twitter.com/intent/tweet?text=Found%20an%20awesome%20new%20band%20exploring%20Hipp)n(est!&url=http%3A%2F%2Fwww.hippnest.me&via=Hipp)n(est" 
+      href ="https://twitter.com/intent/tweet?text=I%20love%20exploring%20Hippnest!&url=http%3A%2F%2Fwww.hippnest.me&via=Hippnest"
       target = "_blank">
       <span>
         <img width ="30" height="30" src= "{{STATIC_URL}}img/Twitter.png" alt="Twitter" />
@@ -58,16 +70,14 @@
 
   {% block content %}
   {% endblock content %}
-  
 
   <!-- Le javascript
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
-  <script src="{{ STATIC_URL }}js/jquery.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
   <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
   <script src="{{ STATIC_URL }}js/suggest.js"></script>
-  
+
   <script>
     $('#searchbar').typeahead({
       source : function (query, process) {

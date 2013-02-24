@@ -6,12 +6,12 @@ from django.conf import settings
 # admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', 'suggest.views.index'),
+    url(r'^$', "suggest.views.splash_page"),
     url(r'^static/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root' : settings.STATIC_ROOT}),
     url(r'^splash$', "suggest.views.splash_page"), 
     url(r'^suggest$', "suggest.views.suggestion_page"),
-    url(r'^suggestajax$', "suggest.views.suggestion_ajax")
+    url(r'^*$', "suggest.views.splash_page")
 
     # Examples:
     #  url(r'^$', 'hipnest.views.index', name='index'),

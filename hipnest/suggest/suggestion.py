@@ -7,8 +7,9 @@ echonest_api_key = "VWFUA3PRSAGWROUNV"
 config.ECHO_NEST_API_KEY= echonest_api_key
 
 
-def suggest_artist(pos_seeds, neg_seeds, fame_level):
-    # fame_level 0-1, 1 is Justin Bieber, 0 is a Tufts band.
+def suggest_artist(pos_seeds, neg_seeds, fame):
+    # fame_level 0-10, 1 is Justin Bieber, 0 is a Tufts band.
+    fame_level = fame / 10.0
     print pos_seeds
     print neg_seeds
     pos_artists = [artist.Artist(a) for a in pos_seeds] if pos_seeds else None
