@@ -35,20 +35,11 @@
         <span class="icon-bar"></span>
         </a>
         <a class="brand" href="#">Hipp)n(est</a>
-        <div class="nav-collapse">
-          <ul class="nav">
-          {% block nav %}
-          <li class="active"><a href="#">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#contact">Contact</a></li>
-          {% endblock nav %}
-          </ul>
-        </div><!--/.nav-collapse -->
       </div>
     </div>
   </div>
 
-  <div class="container">
+  <div class="container-fluid">
   {% block content %}
     <h1>Bootstrap starter template</h1>
     <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
@@ -69,7 +60,7 @@
       </span>
     </a>
     <a title = "Tweet me!"
-      href ="https://twitter.com/intent/tweet?text=Found%20an%20awesome%20new%20band%20exploring%20Hipp)n(est!&url=http%3A%2F%2Fwww.hippnest.me&via=Hipp)n(est" 
+      href ="https://twitter.com/intent/tweet?text=Found%20an%20awesome%20new%20band%20exploring%20Hipp)n(est!&url=http%3A%2F%2Fwww.hippnest.me&via=Hipp)n(est"
       target = "_blank">
       <span>
         <img width ="30" height="30" src= "{{STATIC_URL}}img/Twitter.png" alt="Twitter" />
