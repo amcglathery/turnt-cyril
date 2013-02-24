@@ -3,29 +3,29 @@ from pyechonest import artist
 config.ECHO_NEST_API_KEY="VWFUA3PRSAGWROUNV"
 
 
-def suggestArtist(seeds, fameLevel):
-    # fameLevel 0-1, 1 is Justin Bieber, 0 is a Tufts band.
-    seedArtists = []
+def suggest_artist(seeds, fame_level):
+    # fame_level 0-1, 1 is Justin Bieber, 0 is a Tufts band.
+    seed_artists = []
     for a in seeds:
-      seedArtists.append(artist.Artist(a))
-    print "Artists similar to: ", seedArtists
+      seed_artists.append(artist.Artist(a))
+    print "Artists similar to: ", seed_artists
   
     #Totally arbitrary, but it maintains a good level of hotttnesss.
-    hotLevel = (1 - fameLevel)/2 + 0.1
+    hot_level = (1 - fame_level)/2 + 0.1
     similars = []
   
     # Decreases needed hotness level and increases familiarity upper bound
     # until a band is found.
     while len(similars) < 1:
-        similars = artist.similar(ids =[a.id for a in seedArtists], 
+        similars = artist.similar(ids =[a.id for a in seed_artists], 
                                   results = 1, 
-                                  max_familiarity = fameLevel,
-                                  min_hotttnesss = hotLevel)
+                                  max_familiarity = fame_level,
+                                  min_hotttnesss = hot_level)
     
-        hotLevel -= 0.05
-        fameLevel += 0.025
+        hot_level -= 0.05
+        fame_level += 0.025
     
     for similar_artist in similars: 
          print "\t%s %s %s" % (similar_artist.name, similar_artist.hotttnesss, similar_artist.familiarity)
   
-suggestArtist(["purity ring"], 0.6)
+suggest_artist(["purity ring"], 0.6)

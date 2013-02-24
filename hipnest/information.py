@@ -46,5 +46,21 @@ def create_video_object(url):
 src = %s \n\
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
 
-def bio(a):
-    artist.get_biographies(results=1)[0]
+def get_bio(a):
+    bios = a.get_biographies(results=50)
+    for i in bios:
+        if "last" in i[unicode('url')]:
+           return i[unicode('text')]
+    return bios[0][unicode('text')]
+
+def get_image(a):
+    images = a.get_images(results=50)
+    for i in images[::-1]:
+        if "last" in i[unicode('url')]:
+            return i[unicode('url')]
+    return images[0][unicode('url')]
+
+
+a = artist.Artist("")
+print get_bio(a)
+print get_image(a)
