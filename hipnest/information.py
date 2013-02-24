@@ -15,7 +15,7 @@ yt_service.ssl           = True
 config.ECHO_NEST_API_KEY="VWFUA3PRSAGWROUNV"
 
 ### a is echonest artist object from suggestion.py ###
-##  return url to highly-watched youtube video for artist ###
+### return url to youtube for highly-played song by a ###
 def youtube_link(a):
     ytbs = ([s for s in a.get_video(100, 0) if
             'youtube' in s['site']])
@@ -46,5 +46,5 @@ def create_video_object(url):
 src = %s \n\
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
 
-
-
+def bio(a):
+    artist.get_biographies(results=1)[0]
