@@ -34,9 +34,8 @@ def suggest_artist(seeds, neg_seeds, fame_level):
         fame_level += 0.025
     similars = [a for a in similars if not a in dissimilars]
     r = randint(0,len(similars))
-    print similars
     return similars[r]
 
-print suggest_artist(['radiohead', 'foo fighters'], ['miley cyrus'], .5)
+
 
 
