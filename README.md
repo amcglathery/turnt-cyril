@@ -6,5 +6,6 @@ A website that recommends obscure bands to you
 Requirements
 ------------
 - Echonest python api
-  - install by:
-      ```easy_install -U pyechonest```
+    ```easy_install -U pyechonest```
+- Google Data API
+    ```pip install gdata```
