@@ -1,4 +1,5 @@
 /*
- * javascript file for suggestion page
+ * You found our easter egg. GOOD JOB. 
+ * WUB WUB WUB WUB!
  */
 

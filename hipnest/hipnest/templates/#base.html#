@@ -132,6 +132,7 @@ window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_a
 
 
 $('#right_button').click(function(){
+
 var query = location.search.replace('?', '').split('&');
 var pos_artists = query[0];
 pos_artists = pos_artists.split('=');
@@ -152,6 +153,34 @@ fame = parseInt(fame[1]) + 1;
 window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
 
 });
+
+$('#button_down').click(function(){
+
+var query = location.search.replace('?', '').split('&');
+var pos_artists = query[0];
+pos_artists = pos_artists.split('=');
+pos_artists = pos_artists[1];
+
+var neg_artists = query[1]
+neg_artist = neg_artists.split('=');
+neg_artists = neg_artists[1];
+if (neg_artists == 'e'){
+    neg_artists = '';
+}
+
+var fame = query[2]
+fame = fame.split('=');
+fame = parseInt(fame[1]) + 1;
+
+
+window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
+
+
+
+
+});
+
+
 
 
 })

@@ -16,7 +16,7 @@
   <form action="suggest" method="get">
     <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
     <input type="hidden" name="neg_artists", value="" />
-    <input type="hidden" name="fame", value="5" />
+    <input type="hidden" name="fame", value="7" />
     <input id="search_submit" type="submit" value=""
 	   style="background:url('{{ STATIC_URL }}img/button_hippstafy.png')"/>
   </form>
@@ -33,7 +33,12 @@
     <div style="width:400px;float:right;">
     <p>
     <img id="artist_photo" align="right" style="margin-left:15px;margin-bottom:15px;" src={{art}}>
-    {{bio|safe}}</p></div>
+    {{bio|safe}}</p>
+    <div id="add_subtract">
+      <img id = "button_down" src="{{ STATIC_URL }}img/buttons_down.png" />
+      <img id ="button_up" src="{{ STATIC_URL }}img/buttons_up.png" />
+    </div>
+    </div>
     <div id="dubcat"></div>
     <object width="560" height="315" float="left">
       <iframe width="560" height="315" src="http://www.youtube.com/embed/{{vid}}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
@@ -47,6 +52,70 @@
   </div>
   <div class="clearer"></div>
 </div> <!-- /container -->
+
+<script>
+
+$(document).ready(function(){
+
+$('#button_down').click(function(){
+
+var query = location.search.replace('?', '').split('&');
+var pos_artists = query[0];
+pos_artists = pos_artists.split('=');
+pos_artists = pos_artists[1];
+
+var neg_artists = query[1]
+neg_artist = neg_artists.split('=');
+neg_artists = neg_artists[1];
+if (neg_artists == 'e'){
+    neg_artists = "{{ s_artist }}";
+} else{
+    neg_artists = neg_artists + "," + "{{ s_artist }}" 
+}
+
+var fame = query[2]
+fame = fame.split('=');
+fame = parseInt(fame[1]) + 1;
+
+
+window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
+
+});
+
+$('#button_up').click(function(){
+
+var query = location.search.replace('?', '').split('&');
+var pos_artists = query[0];
+pos_artists = pos_artists.split('=');
+pos_artists = pos_artists[1];
+pos_artists = pos_artists + "," + "{{ s_artist }}";
+
+var neg_artists = query[1]
+neg_artist = neg_artists.split('=');
+neg_artists = neg_artists[1];
+if (neg_artists == 'e'){
+    neg_artists = '';
+} 
+
+var fame = query[2]
+fame = fame.split('=');
+fame = parseInt(fame[1]) + 1;
+
+
+window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
+
+});
+
+
+
+
+})
+
+
+
+
+</script>
+
 
     {% endblock content %}
 
