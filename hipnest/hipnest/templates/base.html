@@ -61,16 +61,17 @@
     </div>
     <div class = "row">
      <div class = "span1">
-       <button class = "btn search"> << </button>
+       <button id = "left_button" class = "btn search"> << </button>
      </div>
      <div id = "search_result" class = "span10">
        <div style="height: 500px; border: 1px solid">
 	 This is where artist information would be -- change style later
-	 {{ foo }}
+	 <div id="a_id">SLIDE A</div>
+
        </div>
      </div>
      <div class = "span1">
-       <button class = "btn search"> >> </button>
+       <button id = "right_button" class = "btn search"> >> </button>
      </div>
     </div>
     <div class = "row">
@@ -97,7 +98,7 @@
   <script src="{{ STATIC_URL }}js/bootstrap-carousel.js"></script>
   <script src="{{ STATIC_URL }}js/bootstrap-typeahead.js"></script>
   <script src="{{ STATIC_URL }}js/suggest.js"></script>
-
+  <script src="http://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
 </body>
 
 </html>
