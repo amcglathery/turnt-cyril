@@ -17,17 +17,17 @@
     <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
     <input type="hidden" name="neg_artists", value="" />
     <input type="hidden" name="fame", value="7" />
-    <input id="search_submit" type="submit" value="Push Me!" class="btn-primary" />
+    <input id="search_submit" type="submit" value=""
+	   style="background:url('{{ STATIC_URL }}img/button_hippstafy.png')"/>
   </form>
   </div>
-  <div id = "search_result_title">Since you like {{seed_artist}}</br> so much, we thought you might like ...</div>
-<div id="search_result_artist">{{s_artist}}</div>
+    <div id = "search_result_title">Since you like {{seed_artist}} so much, we thought you might like <br />
+<span id="search_result_artist">{{s_artist}}</span></div>
 
 <div id = "search_result" style="background-image:url('{{ STATIC_URL }}img/box_suggestions.png');">
   <div id = "left_button_container" class = "search_btn">
-    <img id = "left_button" src="{{ STATIC_URL }}img/button_left.png" />
+    <img id = "left_button" src="{{ STATIC_URL }}img/button_left.png" title="Give me less mainstream artists" />
   </div>
-  <div id = "left_tooltip">Give me more hipster (less popular) bands</div>
 
   <div id="artist_info">
     <div style="width:400px;float:right;">
@@ -50,8 +50,7 @@
 
 </div>
   <div id = "right_button_container" class = "search_btn">
-    <img id = "right_button" src="{{ STATIC_URL }}img/button_right.png" />
-    <div id = "right_tooltip">Give me less hipster (more popular) bands</div>
+    <img id = "right_button" src="{{ STATIC_URL }}img/button_right.png" title="Give more mainstream artists"/>
   </div>
 
   <div class="clearer"></div>
@@ -83,7 +82,7 @@ neg_artists = neg_artists[1];
 if (neg_artists == 'e'){
     neg_artists = "{{ s_artist }}";
 } else{
-    neg_artists = neg_artists + "," + "{{ s_artist }}"
+    neg_artists = neg_artists + "," + "{{ s_artist }}" 
 }
 
 var fame = query[2]
@@ -108,7 +107,7 @@ neg_artist = neg_artists.split('=');
 neg_artists = neg_artists[1];
 if (neg_artists == 'e'){
     neg_artists = '';
-}
+} 
 
 var fame = query[2]
 fame = fame.split('=');
@@ -117,22 +116,6 @@ fame = parseInt(fame[1]) + 1;
 
 window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
 
-});
-
-$("#left_button").mouseover(function(e){
-    $("#left_tooltip").show();
-});
-
-$("#left_button").mouseout(function(){
-    $("#left_tooltip").hide();
-});
-
-$("#right_button").mouseover(function(){
-    $("#right_tooltip").show();
-});
-
-$("#right_button").mouseout(function(){
-    $("#right_tooltip").hide();
 });
 
 
