@@ -1,4 +1,10 @@
-.search{
-    height: 100%;
-    
+.search_btn{
+    position:fixed;
+    width: 50px;
+    height: 80%;
+    display: block;
 }
+}
+
+
+
