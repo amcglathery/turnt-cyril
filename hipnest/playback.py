@@ -44,5 +44,3 @@ def create_video_object(url):
 src = %s \n\
 frameborder=\"0\" allowfullscreen></iframe>\n" %url
 
-url = youtube_link("adele")
-print create_video_object(url)
