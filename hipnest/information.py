@@ -45,7 +45,7 @@ def views_from_en_vid(v):
     yt_id = re.split('=',v['url'])[1]
     entry = yt_service.GetYouTubeVideoEntry(video_id=yt_id)
     print entry
-    if "limitedSyndication" or "not found" or "Private video" in str(entry):
+    if "limitedSyndication" in str(entry):
         return None
     return (yt_id, entry.statistics.view_count)
 
