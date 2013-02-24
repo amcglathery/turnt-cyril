@@ -10,13 +10,12 @@
   <h2 align="center"><font face="lucinda console">
       Just start typing you favorite band... we'll take care of the rest.
   </h2>
-  <form action="suggest" method="get">
+  <form align="center" action="suggest" method="get">
 
     <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
     <input type="hidden" name="neg_artists" value="" />
-    <input type="hidden" name="fame" value="5" />
-    <input id="search_submit" type="submit" value=""
-	   style="background:url('{{ STATIC_URL }}img/button_hippstafy.png')"/>
+    <input type="hidden" name="fame" value="7" />
+    <input id="search_submit" type="submit" value="Push Me!" class="btn-primary" />
    </form>
 </div>
 {% endblock content %}

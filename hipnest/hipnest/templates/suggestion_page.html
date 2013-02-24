@@ -17,12 +17,11 @@
     <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
     <input type="hidden" name="neg_artists", value="" />
     <input type="hidden" name="fame", value="7" />
-    <input id="search_submit" type="submit" value=""
-	   style="background:url('{{ STATIC_URL }}img/button_hippstafy.png')"/>
+    <input id="search_submit" type="submit" value="Push Me!" class="btn-primary" />
   </form>
   </div>
-    <div id = "search_result_title">Since you like {{seed_artist}} so much, we thought you might like <br />
-<span id="search_result_artist">{{s_artist}}</span></div>
+  <div id = "search_result_title">Since you like {{seed_artist}}</br> so much, we thought you might like ...</div>
+<div id="search_result_artist">{{s_artist}}</div>
 
 <div id = "search_result" style="background-image:url('{{ STATIC_URL }}img/box_suggestions.png');">
   <div id = "left_button_container" class = "search_btn">
@@ -84,7 +83,7 @@ neg_artists = neg_artists[1];
 if (neg_artists == 'e'){
     neg_artists = "{{ s_artist }}";
 } else{
-    neg_artists = neg_artists + "," + "{{ s_artist }}" 
+    neg_artists = neg_artists + "," + "{{ s_artist }}"
 }
 
 var fame = query[2]
@@ -109,7 +108,7 @@ neg_artist = neg_artists.split('=');
 neg_artists = neg_artists[1];
 if (neg_artists == 'e'){
     neg_artists = '';
-} 
+}
 
 var fame = query[2]
 fame = fame.split('=');
