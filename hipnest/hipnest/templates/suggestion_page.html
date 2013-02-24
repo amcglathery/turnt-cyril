@@ -21,9 +21,11 @@
   </div>
 
   <div id="artist_info">
-    <img id="artist_photo" align="left" height="350" width="350"  src={{art}}>
-    <p>{{bio}}</p>
-    <object width="560" height="315">
+    <div style="width:400px;float:right;">
+    <p>
+    <img id="artist_photo" align="right" style="margin-left:15px;margin-bottom:15px;" src={{art}}>
+    {{bio}}</p></div>
+    <object width="560" height="315" float="left">
       <iframe width="560" height="315" src="http://www.youtube.com/embed/{{vid}}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
     </object>
 
@@ -34,7 +36,6 @@
     <img id = "right_button" src="{{ STATIC_URL }}img/button_right.png" />
   </div>
   <div class="clearer"></div>
-<div id = "bottom_arrow">bottom_arrow</div>
 </div> <!-- /container -->
 
 

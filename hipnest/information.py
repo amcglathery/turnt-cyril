@@ -66,6 +66,8 @@ def get_bio(a):
            short_bio = bio[:400]
            last_dot = string.rfind('.', short_bio)
            short_bio = short_bio[:last_dot]
+           if len(short_bio) < 160:
+               return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name
            return short_bio + "."
     return "%s are so hipster, we haven't even heard of them yet. But you have!" %a.name 
 
