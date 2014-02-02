@@ -27,16 +27,16 @@ def youtube_link(a):
     threshold = 10000
     while(1):
         for v in ytbs:
-            try:
-                monad = views_from_en_vid(v)
-            except:
-                continue
-            if monad:
-                (yt_id, vws) = monad
-            else:
-                continue
-            if vws >= threshold:
-                return yt_id
+          try:
+              monad = views_from_en_vid(v)
+          except:
+              continue
+          if monad:
+              (yt_id, vws) = monad
+          else:
+              continue
+          if vws >= threshold:
+              return yt_id
         threshold /= 10
         if threshold == 0:
             return "dtzZjauGO7s" 
@@ -46,6 +46,7 @@ def youtube_link(a):
 ###return pair (url, views)###
 def views_from_en_vid(v):
     yt_id = re.split('=',v['url'])[1]
+    yt_id = yt_id.split("&",1)[0]
     entry = yt_service.GetYouTubeVideoEntry(video_id=yt_id)
     if "limitedSyndication" in str(entry) or "Private Video" in str(entry):
         return None
