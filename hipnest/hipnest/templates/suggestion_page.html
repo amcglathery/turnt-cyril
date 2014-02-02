@@ -1,136 +1,174 @@
 {% extends "base.html" %}
 <html>
-{% block title %} Presenting: {{s_artist}} {% endblock title %}
+  {% block title %} Presenting: {{s_artist}} {% endblock title %}
 
-{% block content %}
-<script>
-  $(document).ready( function() {
-    console.log("here!");
-    if ("{{vid}}" == "dtzZjauGO7s"){
-      console.log("there!");
-      $("#dubcat").html('<h3> {{s_artist}} is too cool for YouTube, so we bring you dubstep cat!</h3>');
-    }
-  });
-</script>
-<div id = "search_bar_container">
-  <form action="suggest" method="get">
-    <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
-    <input type="hidden" name="neg_artists", value="" />
-    <input type="hidden" name="fame", value="7" />
-    <input id="search_submit" type="submit" value="Push Me!" class="btn-primary">
-  </form>
-  </div>
-  <div id = "search_result_title">Since you like {{seed_artist}}</br> so much, we thought you might like...</div>
-<div id="search_result_artist">{{s_artist}}</div>
+  {% block content %}
+  <script>
+    $(document).ready( function() {
+      console.log("here!");
+      if ("{{vid}}" == "dtzZjauGO7s"){
+        $("#dubcat").html('<h3> {{s_artist}} is too cool for YouTube, so we bring you dubstep cat!</h3>');
+      }
+    });
+  </script>
+  <script>
+    // 2. This code loads the IFrame Player API code asynchronously.
+    var tag = document.createElement('script');
 
-<div id = "search_result" style="background-image:url('{{ STATIC_URL }}img/box_suggestions.png');">
-  <div id = "left_button_container" class = "search_btn">
-    <img id = "left_button" src="{{ STATIC_URL }}img/button_left.png" title="Give me less mainstream artists" />
-  </div>
+    tag.src = "https://www.youtube.com/iframe_api";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-  <div id="artist_info">
-    <div style="width:400px;float:right;">
-    <p>
-    <img id="artist_photo" align="right" style="margin-left:15px;margin-bottom:15px;" src={{art}}>
-    {{bio|safe}}</p>
-    <div id="add_subtract">
-      <img id = "button_down" src="{{ STATIC_URL }}img/buttons_down.png" />
-      <span>No more like this artist</span>
-      <img id ="button_up" src="{{ STATIC_URL }}img/buttons_up.png" />
-        <span>More like this artist</span>
-        <div style="width:100%;">
-	<button id="random" class="btn-primary" align="center" style="margin:auto; text-align:center;">Just give me more!</button>
-</div>
+    // 3. This function creates an <iframe> (and YouTube player)
+      //    after the API code downloads.
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '480',
+          width: '580',
+          videoId: '{{vid}}',
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      // 4. The API will call this function when the video player is ready.
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      // 5. The API calls this function when the player's state changes.
+      //    The function indicates that when playing a video (state=1),
+      //    the player should play for six seconds and then stop.
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.ENDED && !done) {
+          done = true;
+          location.reload();
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
+    </script>
+    <div id = "search_bar_container">
+      <form action="suggest" method="get">
+        <input type="text" name="pos_artists" class="span3" id="searchbar" data-provide="typeahead" autocomplete="off" placeholder="Search for an artist" />
+        <input type="hidden" name="neg_artists", value="" />
+        <input type="hidden" name="fame", value="7" />
+        <input id="search_submit" type="submit" value="Push Me!" class="btn-primary">
+      </form>
     </div>
+    <div id = "search_result_title">Since you like {{seed_artist}}</br> so much, we thought you might like...</div>
+    <div id="search_result_artist">{{s_artist}}</div>
+
+    <div id = "search_result" style="background-image:url('{{ STATIC_URL }}img/box_suggestions.png');">
+      <div id = "left_button_container" class = "search_btn">
+        <img id = "left_button" src="{{ STATIC_URL }}img/button_left.png" title="Give me less mainstream artists" />
+      </div>
+
+      <div id="artist_info">
+        <div style="width:400px;float:right;">
+          <p>
+          <img id="artist_photo" align="right" style="margin-left:15px;margin-bottom:15px;" src={{art}}>
+          {{bio|safe}}</p>
+          <div id="add_subtract">
+            <img id = "button_down" src="{{ STATIC_URL }}img/buttons_down.png" />
+            <span>No more like this artist</span>
+            <img id ="button_up" src="{{ STATIC_URL }}img/buttons_up.png" />
+            <span>More like this artist</span>
+            <div style="width:100%;">
+              <button id="random" class="btn-primary" align="center" style="margin:auto; text-align:center;">Just give me more!</button>
+            </div>
+          </div>
+        </div>
+        <div id="dubcat"></div>
+        <div id="player"></div>
+      </div>
+
     </div>
-    <div id="dubcat"></div>
-    <object width="560" height="315" float="left">
-      <iframe width="560" height="315" src="http://www.youtube.com/embed/{{vid}}?rel=0&autoplay=1" frameborder="0" allowfullscreen></iframe>
-    </object>
+    <div id = "right_button_container" class = "search_btn">
+      <img id = "right_button" src="{{ STATIC_URL }}img/button_right.png" title="Give more mainstream artists"/>
+    </div>
 
-  </div>
+    <div class="clearer"></div>
+  </div> <!-- /container -->
 
-</div>
-  <div id = "right_button_container" class = "search_btn">
-    <img id = "right_button" src="{{ STATIC_URL }}img/button_right.png" title="Give more mainstream artists"/>
-  </div>
+  <script>
 
-  <div class="clearer"></div>
-</div> <!-- /container -->
+    $(document).ready(function(){
 
-<script>
+      $("#left_tooltip").hide();
+      $("#right_tooltip").hide();
 
-$(document).ready(function(){
+      var mouseX;
+      var mouseY;
+      $(document).mousemove(function(e){
 
-$("#left_tooltip").hide();
-$("#right_tooltip").hide();
+      });
 
-var mouseX;
-var mouseY;
-$(document).mousemove(function(e){
+      $('#button_down').click(function(){
 
-});
+        var query = location.search.replace('?', '').split('&');
+        var pos_artists = query[0];
+        pos_artists = pos_artists.split('=');
+        pos_artists = pos_artists[1];
 
-$('#button_down').click(function(){
+        var neg_artists = query[1]
+        neg_artist = neg_artists.split('=');
+        neg_artists = neg_artists[1];
+        if (neg_artists == 'e'){
+          neg_artists = "{{ s_artist }}";
+          } else{
+          neg_artists = neg_artists + "," + "{{ s_artist }}"
+        }
 
-var query = location.search.replace('?', '').split('&');
-var pos_artists = query[0];
-pos_artists = pos_artists.split('=');
-pos_artists = pos_artists[1];
-
-var neg_artists = query[1]
-neg_artist = neg_artists.split('=');
-neg_artists = neg_artists[1];
-if (neg_artists == 'e'){
-    neg_artists = "{{ s_artist }}";
-} else{
-    neg_artists = neg_artists + "," + "{{ s_artist }}"
-}
-
-var fame = query[2]
-fame = fame.split('=');
-fame = parseInt(fame[1]) + 1;
+        var fame = query[2]
+        fame = fame.split('=');
+        fame = parseInt(fame[1]) + 1;
 
 
-window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
+        window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
 
-});
+      });
 
-$('#button_up').click(function(){
+      $('#button_up').click(function(){
 
-var query = location.search.replace('?', '').split('&');
-var pos_artists = query[0];
-pos_artists = pos_artists.split('=');
-pos_artists = pos_artists[1];
-pos_artists = pos_artists + "," + "{{ s_artist }}";
+        var query = location.search.replace('?', '').split('&');
+        var pos_artists = query[0];
+        pos_artists = pos_artists.split('=');
+        pos_artists = pos_artists[1];
+        pos_artists = pos_artists + "," + "{{ s_artist }}";
 
-var neg_artists = query[1]
-neg_artist = neg_artists.split('=');
-neg_artists = neg_artists[1];
-if (neg_artists == 'e'){
-    neg_artists = '';
-}
+        var neg_artists = query[1]
+        neg_artist = neg_artists.split('=');
+        neg_artists = neg_artists[1];
+        if (neg_artists == 'e'){
+          neg_artists = '';
+        }
 
-var fame = query[2]
-fame = fame.split('=');
-fame = parseInt(fame[1]) + 1;
+        var fame = query[2]
+        fame = fame.split('=');
+        fame = parseInt(fame[1]) + 1;
 
 
-window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
+        window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
 
-});
+      });
 
-$("#random").click(function(){
-    location.reload();
-})
+      $("#random").click(function(){
+        location.reload();
+      })
 
-})
+    })
 
 
 
 
-</script>
+  </script>
 
 
-    {% endblock content %}
+  {% endblock content %}
 

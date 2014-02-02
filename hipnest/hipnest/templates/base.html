@@ -128,8 +128,9 @@ if (neg_artists == 'e'){
 
 var fame = query[2]
 fame = fame.split('=');
-fame = parseInt(fame[1]) - 1;
-
+if (fame > 3) {
+  fame = parseInt(fame[1]) - 1;
+}
 window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
 
 });
@@ -150,7 +151,9 @@ if (neg_artists == 'e'){
 
 var fame = query[2]
 fame = fame.split('=');
-fame = parseInt(fame[1]) + 1;
+if (fame < 10) {
+  fame = parseInt(fame[1]) + 1;
+}
 
 
 window.location.search = "?pos_artists=" + pos_artists + "&neg_artists=" + neg_artists + "&fame=" + fame;
